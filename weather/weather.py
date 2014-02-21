@@ -43,5 +43,4 @@ def getWeatherDetails():
 
 weatherDetails = getWeatherDetails()
 for strVal in weatherDetails:
-	#subprocess.call(["speak",strVal])
-	print(strVal)
+	subprocess.call(["speak",strVal])
