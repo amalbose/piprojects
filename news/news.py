@@ -14,3 +14,4 @@ root = ET.fromstring(response_string)
 channel = root[0]
 for item in channel.iter('item'):
 	print(item[0].text)
+	subprocess.call(["speak",item[0].text])
