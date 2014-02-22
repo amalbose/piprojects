@@ -3,6 +3,7 @@ from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
 from os import curdir, sep, listdir
 import cgi
 from os.path import isfile, join
+from subprocess import call
 
 PORT_NUMBER = 8080
 
@@ -60,11 +61,13 @@ class myHandler(BaseHTTPRequestHandler):
             })
 
             print "Your name is: %s" % form["your_name"].value
+            mypath="/media/Expansion Drive/Entertainment/Music/English/"
             onlyfiles = [ f for f in listdir(mypath) if isfile(join(mypath,f)) ]
-            print onlyfiles
             self.send_response(200)
             self.end_headers()
+            call(["mpg123",mypath+str(form["your_name"].value)])
             self.wfile.write("Thanks %s !" % form["your_name"].value)
+            self.wfile.write(onlyfiles)
             return          
             
             
