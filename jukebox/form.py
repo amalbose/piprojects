@@ -51,6 +51,12 @@ class myHandler(BaseHTTPRequestHandler):
             self.send_error(404,'File Not Found: %s' % self.path)
 
         elif self.path=="/Files":
+            self.send_response(200)
+            mypath="/media/Expansion Drive/Entertainment/Music/English/"
+            self.send_header('Content-type',mimetype)
+            self.end_headers()
+            self.wfile.write('<br/>'.join([ f for f in listdir(mypath) if isfile(join(mypath,f)) ]))
+            f.close()
             
     #Handler for the POST requests
     def do_POST(self):
