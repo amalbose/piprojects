@@ -8,7 +8,7 @@ WORLD_NEWS="https://news.google.com/news/feeds?output=rss"
 INDIA_NEWS="https://news.google.co.in/news/feeds?output=rss"
 KERALA_NEWS="https://news.google.co.in/news/feeds?output=rss&q=kerala"
 
-response_string=urllib.request.urlopen(KERALA_NEWS + "&num=" + str(COUNT)).read().decode('utf-8')
+response_string=urllib.request.urlopen(WORLD_NEWS + "&num=" + str(COUNT)).read().decode('utf-8')
 
 root = ET.fromstring(response_string)
 
