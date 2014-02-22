@@ -64,6 +64,7 @@ class myHandler(BaseHTTPRequestHandler):
             self.wfile.write('</table>')
             f.close()
             
+            
     #Handler for the POST requests
     def do_POST(self):
         if self.path=="/send":
@@ -81,6 +82,20 @@ class myHandler(BaseHTTPRequestHandler):
             self.end_headers()
             call(["mpg123",mypath+str(form["your_name"].value)])
             self.wfile.write("Thanks %s !" % form["your_name"].value)
+            self.wfile.write(onlyfiles)
+            return
+        elif self.path=="/play":
+            form = cgi.FieldStorage(
+                fp=self.rfile, 
+                headers=self.headers,
+                environ={'REQUEST_METHOD':'POST',
+                         'CONTENT_TYPE':self.headers['Content-Type'],
+            })
+
+            print "Your name is: %s" % form["playSel"].value
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write("Thanks %s !" % form["playSel"].value)
             self.wfile.write(onlyfiles)
             return          
             

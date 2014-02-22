@@ -1,3 +1,45 @@
-Hello World!!
-This is Jukebox
+<html>
+<head>
+	<title>Axa Jukebox</title>
+	<link href="style.css" media="screen" rel="stylesheet" type="text/css" />
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/script.js" ></script>
+</head>
+<body>
+<div id='wrapper'>
+	<div id='heading'><h2>Jukebox</h2></div>
+	<div id='fileTableDiv'>
+		<form action="/play" methord="POST">
+		<table id='fileTable' class="zebra">
+			<thead><tr><th width="20px"></th><th width="20px"></th><th>File Name</th></tr></thead>
+			<tbody>
+				<tr class='folder closed' id="folder1"><td><input type="checkbox" name='playSel' /></td><td class='playButton'/></td><td class='fileName'>Folder1</td></tr>
+				<tr class ='folder1 file' ><td><input type="checkbox" name='playSel' /></td><td class='playButton'/></td><td class='fileName'>File1</td></tr>
+				<tr class ='folder1 file'><td><input type="checkbox" name='playSel' /></td><td class='playButton'/></td><td class='fileName'>File1</td></tr>
+				<tr class ='folder1 file'><td><input type="checkbox" name='playSel' /></td><td class='playButton'/></td><td class='fileName'>File1</td></tr>
+				<tr class ='folder1 file'><td><input type="checkbox" name='playSel' /></td><td class='playButton'/></td><td class='fileName'>File1</td></tr>
 
+				<tr class='folder closed' id="folder2"><td><input type="checkbox"  name='playSel' /></td><td class='playButton'/></td><td class='fileName'>Folder1</td></tr>
+				<tr class ='folder2 file'><td><input type="checkbox" name='playSel' /></td><td class='playButton'/></td><td class='fileName'>File1</td></tr>
+				<tr class ='folder2 file'><td><input type="checkbox" name='playSel' /></td><td class='playButton'/></td><td class='fileName'>File1</td></tr>
+			</tbody>
+		</table>
+		<input type="submit" value="Play"/>
+		</form>
+	</div>
+</div>
+</body>
+</html>
+
+
+<!---
+
+
+				
+				<tr><td class='playButton'/></td><td class='fileName'>File Name2</td><td class='folderName'>Folder2</td></tr>
+				<tr><td class='playButton'/></td><td class='fileName'>File Name3</td><td class='folderName'>Folder3</td></tr>
+				<tr><td class='playButton'/></td><td class='fileName'>File Name4</td><td class='folderName'>Folder4</td></tr>
+				<tr><td class='playButton'/></td><td class='fileName'>File Name5</td><td class='folderName'>Folder5</td></tr>
+				<tr><td class='playButton'/></td><td class='fileName'>File Name6</td><td class='folderName'>Folder6</td></tr>
+
+				-->
