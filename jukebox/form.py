@@ -50,6 +50,8 @@ class myHandler(BaseHTTPRequestHandler):
         except IOError:
             self.send_error(404,'File Not Found: %s' % self.path)
 
+        elif self.path=="/Files":
+            
     #Handler for the POST requests
     def do_POST(self):
         if self.path=="/send":
