@@ -13,8 +13,9 @@ class myHandler(BaseHTTPRequestHandler):
     
     #Handler for the GET requests
     def do_GET(self):
+        print("GET" + self.path)
         if self.path=="/":
-            self.path="/index_example3.html"
+            self.path="/index.html"
 
             try:
                 #Check the file extension required and
@@ -67,6 +68,7 @@ class myHandler(BaseHTTPRequestHandler):
             
     #Handler for the POST requests
     def do_POST(self):
+        print("POST" + self.path)
         if self.path=="/send":
             form = cgi.FieldStorage(
                 fp=self.rfile, 
@@ -92,11 +94,12 @@ class myHandler(BaseHTTPRequestHandler):
                          'CONTENT_TYPE':self.headers['Content-Type'],
             })
 
-            print "Your name is: %s" % form["playSel"].value
+            print "Your name is: %s" % form["playSel"][0].value
+            print form["playSel"]
             self.send_response(200)
             self.end_headers()
-            self.wfile.write("Thanks %s !" % form["playSel"].value)
-            self.wfile.write(onlyfiles)
+            #self.wfile.write("Thanks %s !" % form["playSel"].value)
+            self.wfile.write(form["playSel"])
             return          
             
             
