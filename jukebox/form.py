@@ -53,9 +53,15 @@ class myHandler(BaseHTTPRequestHandler):
         elif self.path=="/Files":
             self.send_response(200)
             mypath="/media/Expansion Drive/Entertainment/Music/English/"
+            mimetype='text/html'
             self.send_header('Content-type',mimetype)
             self.end_headers()
-            self.wfile.write('<br/>'.join([ f for f in listdir(mypath) if isfile(join(mypath,f)) ]))
+            #self.wfile.write('<br/>'.join([ f for f in listdir(mypath) if isfile(join(mypath,f)) ]))
+            files=[ f for f in listdir(mypath) if isfile(join(mypath,f)) ]
+            self.wfile.write('<table>')
+            for file in files:
+                self.wfile.write('<tr><td>' + file + '</td></tr>')
+            self.wfile.write('</table>')
             f.close()
             
     #Handler for the POST requests
