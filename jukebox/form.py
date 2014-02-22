@@ -1,7 +1,8 @@
 #!/usr/bin/python
 from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
-from os import curdir, sep
+from os import curdir, sep, listdir
 import cgi
+from os.path import isfile, join
 
 PORT_NUMBER = 8080
 
@@ -59,7 +60,8 @@ class myHandler(BaseHTTPRequestHandler):
             })
 
             print "Your name is: %s" % form["your_name"].value
-            
+            onlyfiles = [ f for f in listdir(mypath) if isfile(join(mypath,f)) ]
+            print onlyfiles
             self.send_response(200)
             self.end_headers()
             self.wfile.write("Thanks %s !" % form["your_name"].value)
