@@ -93,13 +93,15 @@ class myHandler(BaseHTTPRequestHandler):
                 environ={'REQUEST_METHOD':'POST',
                          'CONTENT_TYPE':self.headers['Content-Type'],
             })
-
-            print "Your name is: %s" % form["playSel"][0].value
-            print form["playSel"]
+            selectedItems = form["playSel"]
+            for selectedItem in selectedItems:
+                print selectedItem.value
+            
             self.send_response(200)
             self.end_headers()
             #self.wfile.write("Thanks %s !" % form["playSel"].value)
-            self.wfile.write(form["playSel"])
+            for selectedItem in selectedItems:
+                self.wfile.write(selectedItem.value + '<br/>')
             return          
             
             
